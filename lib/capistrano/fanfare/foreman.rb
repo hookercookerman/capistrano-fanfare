@@ -31,7 +31,7 @@ module Capistrano::Fanfare::Foreman
           [internal] Copies env from shared path into current_path as .env
         DESC
         task :cp_env, :roles => :app, :except => { :no_release => true } do
-          run "cp #{shared_path}/env #{current_release}/.env"
+          run "cp -R #{shared_path}/env #{current_release}/.env"
         end
 
         desc <<-DESC
